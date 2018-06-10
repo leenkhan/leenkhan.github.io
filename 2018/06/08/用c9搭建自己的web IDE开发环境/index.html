@@ -7,12 +7,12 @@
   
   <title>用cloud9(c9)搭建自己的web IDE开发环境 | 代码的星辰大海</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用cloud9(c9)搭建自己的web IDE开发环境闲话：因为嫌弃MBP15太重，尝试周末带ipad和折叠键盘出去，看书学习时偶尔需要敲一下书上的代码跑一下，于是仔细对比了coding.net的Cloud Studio和亚马逊的cloud9(c9)两款web IDE，先说一下我的体验，首先coding的Cloud Studio只有一个月的免费体验时间，开通的时部署到腾讯云的建站主机上，到期需要续">
+  <meta name="description" content="闲话：因为嫌弃MBP15太重，尝试周末带ipad和折叠键盘出去，看书学习时偶尔需要敲一下书上的代码跑一下，于是仔细对比了coding.net的Cloud Studio和亚马逊的cloud9(c9)两款web IDE，先说一下我的体验，首先coding的Cloud Studio只有一个月的免费体验时间，开通的时部署到腾讯云的建站主机上，到期需要续费才能用，价格228块最近coding和腾讯云合作做活">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用cloud9(c9)搭建自己的web IDE开发环境">
 <meta property="og:url" content="http://yoursite.com/2018/06/08/用c9搭建自己的web IDE开发环境/index.html">
 <meta property="og:site_name" content="代码的星辰大海">
-<meta property="og:description" content="用cloud9(c9)搭建自己的web IDE开发环境闲话：因为嫌弃MBP15太重，尝试周末带ipad和折叠键盘出去，看书学习时偶尔需要敲一下书上的代码跑一下，于是仔细对比了coding.net的Cloud Studio和亚马逊的cloud9(c9)两款web IDE，先说一下我的体验，首先coding的Cloud Studio只有一个月的免费体验时间，开通的时部署到腾讯云的建站主机上，到期需要续">
+<meta property="og:description" content="闲话：因为嫌弃MBP15太重，尝试周末带ipad和折叠键盘出去，看书学习时偶尔需要敲一下书上的代码跑一下，于是仔细对比了coding.net的Cloud Studio和亚马逊的cloud9(c9)两款web IDE，先说一下我的体验，首先coding的Cloud Studio只有一个月的免费体验时间，开通的时部署到腾讯云的建站主机上，到期需要续费才能用，价格228块最近coding和腾讯云合作做活">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://bulldog.qiniudn.com/aws_signup.png">
 <meta property="og:image" content="http://bulldog.qiniudn.com/cloud9open.png">
@@ -21,10 +21,11 @@
 <meta property="og:image" content="http://bulldog.qiniudn.com/c9ide_loding1.png">
 <meta property="og:image" content="http://bulldog.qiniudn.com/c9welcome.png">
 <meta property="og:image" content="http://bulldog.qiniudn.com/c9_install_cmd.png">
-<meta property="og:updated_time" content="2018-06-08T14:53:29.358Z">
+<meta property="og:image" content="http://bulldog.qiniudn.com/c9_basic_auth.png">
+<meta property="og:updated_time" content="2018-06-10T09:22:39.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用cloud9(c9)搭建自己的web IDE开发环境">
-<meta name="twitter:description" content="用cloud9(c9)搭建自己的web IDE开发环境闲话：因为嫌弃MBP15太重，尝试周末带ipad和折叠键盘出去，看书学习时偶尔需要敲一下书上的代码跑一下，于是仔细对比了coding.net的Cloud Studio和亚马逊的cloud9(c9)两款web IDE，先说一下我的体验，首先coding的Cloud Studio只有一个月的免费体验时间，开通的时部署到腾讯云的建站主机上，到期需要续">
+<meta name="twitter:description" content="闲话：因为嫌弃MBP15太重，尝试周末带ipad和折叠键盘出去，看书学习时偶尔需要敲一下书上的代码跑一下，于是仔细对比了coding.net的Cloud Studio和亚马逊的cloud9(c9)两款web IDE，先说一下我的体验，首先coding的Cloud Studio只有一个月的免费体验时间，开通的时部署到腾讯云的建站主机上，到期需要续费才能用，价格228块最近coding和腾讯云合作做活">
 <meta name="twitter:image" content="http://bulldog.qiniudn.com/aws_signup.png">
   
     <link rel="alternate" href="/atom.xml" title="代码的星辰大海" type="application/atom+xml">
@@ -98,7 +99,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="用cloud9-c9-搭建自己的web-IDE开发环境"><a href="#用cloud9-c9-搭建自己的web-IDE开发环境" class="headerlink" title="用cloud9(c9)搭建自己的web IDE开发环境"></a>用cloud9(c9)搭建自己的web IDE开发环境</h1><p><strong>闲话</strong>：因为嫌弃MBP15太重，尝试周末带ipad和折叠键盘出去，看书学习时偶尔需要敲一下书上的代码跑一下，于是仔细对比了coding.net的Cloud Studio和亚马逊的cloud9(c9)两款web IDE，先说一下我的体验，首先coding的Cloud Studio只有一个月的免费体验时间，开通的时部署到腾讯云的建站主机上，到期需要续费才能用，价格228块最近coding和腾讯云合作做活动，活动价128块。cloud9可以免费部署到亚马逊的EC2云服务器，1cpu1G内存的是免费的，但是开通aws账号需要信用卡,没信用卡的可以散了(话说这年代为什么还有人木有信用卡)。</p>
+        <p><strong>闲话</strong>：因为嫌弃MBP15太重，尝试周末带ipad和折叠键盘出去，看书学习时偶尔需要敲一下书上的代码跑一下，于是仔细对比了coding.net的Cloud Studio和亚马逊的cloud9(c9)两款web IDE，先说一下我的体验，首先coding的Cloud Studio只有一个月的免费体验时间，开通的时部署到腾讯云的建站主机上，到期需要续费才能用，价格228块最近coding和腾讯云合作做活动，活动价128块。cloud9可以免费部署到亚马逊的EC2云服务器，1cpu1G内存的是免费的，但是开通aws账号需要信用卡,没信用卡的可以散了(话说这年代为什么还有人木有信用卡)。</p>
 <h3 id="安装cloud9-C9-web-IDE的两种方式"><a href="#安装cloud9-C9-web-IDE的两种方式" class="headerlink" title="安装cloud9(C9) web IDE的两种方式:"></a>安装cloud9(C9) web IDE的两种方式:</h3><h4 id="方式一：在aws上安装"><a href="#方式一：在aws上安装" class="headerlink" title="方式一：在aws上安装"></a>方式一：在aws上安装</h4><p>这种方式安装是最简单的，而且是全功能的c9版本，而且可以免费使用aws云服务器，但是aws在国内没有数据中心，速度有点慢，如果你不在意，可以用这种方式。</p>
 <ul>
 <li><p><strong>第一步</strong> 注册aws账号，绑定信用卡<br><img src="http://bulldog.qiniudn.com/aws_signup.png" alt="注册界面"></p>
@@ -119,12 +120,19 @@
 <li><p>启动服务</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node server.js</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>启动项说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">--settings       Settings file to use 以配置文件</span><br><span class="line">--help           Show command line options.打印帮助</span><br><span class="line">-t               Start in test mode 测试模式</span><br><span class="line">-k               Kill tmux server in test mode</span><br><span class="line">-b               Start the bridge server - to receive commands from the cli  [default: false] </span><br><span class="line">-w               Workspace directory 指定工作空间目录</span><br><span class="line">--port           Port 指定访问端口</span><br><span class="line">--debug          Turn debugging on 开启调试模式</span><br><span class="line">--listen         IP address of the server 指定服务器IP</span><br><span class="line">--readonly       Run in read only mode 以只读模式运行</span><br><span class="line">--packed         Whether to use the packed version.</span><br><span class="line">--auth           Basic Auth username:password  指定basic auth认证登陆的用户名和密码,格式: 用户名:密码</span><br><span class="line">--collab         Whether to enable collab.</span><br><span class="line">--no-cache       Don&apos;t use the cached version of CSS</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<p>指定自己的工作空间，并以Basic Auth认证方式启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-4-197-ubuntu:~$ ls</span><br><span class="line">c9sdk  download  workspace</span><br><span class="line">ubuntu@VM-4-197-ubuntu:~$ node c9sdk/server.js -w ~/workspace --auth abc:123456</span><br></pre></td></tr></table></figure></p>
+<p>说明一下c9启动后侦听的是127.0.0.1的ip，我设置–listen为外网ip好像无效，最后是用安装nginx反向代理来实现外网80端口访问的。</p>
+<p><img src="http://bulldog.qiniudn.com/c9_basic_auth.png" alt="c9登陆"></p>
+<p>剩下的事情就是代码写的怎么样，和linux命令用的熟不熟的问题了</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/08/用c9搭建自己的web IDE开发环境/" data-id="cji63ot5h0003qbqx0ymsixlm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/08/用c9搭建自己的web IDE开发环境/" data-id="cji8mi9ss00016aqxjxyo3a0d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,10 +190,6 @@
         
           <li>
             <a href="/2018/05/19/集体智慧编程读书笔记1/">集体智慧编程读书笔记1</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/17/Mac-OS-X中利用终端校验文件的MD5和SHA1值/">Mac OS X中利用终端校验文件的MD5和SHA1值</a>
           </li>
         
           <li>
