@@ -91,19 +91,19 @@
         <p><strong>闲话</strong>：因为嫌弃MBP15太重，尝试周末带ipad和折叠键盘出去，看书学习时偶尔需要敲一下书上的代码跑一下，于是仔细对比了coding.net的Cloud Studio和亚马逊的cloud9(c9)两款web IDE，先说一下我的体验，首先coding的Cloud Studio只有一个月的免费体验时间，开通的时部署到腾讯云的建站主机上，到期需要续费才能用，价格228块最近coding和腾讯云合作做活动，活动价128块。cloud9可以免费部署到亚马逊的EC2云服务器，1cpu1G内存的是免费的，但是开通aws账号需要信用卡,没信用卡的可以散了(话说这年代为什么还有人木有信用卡)。</p>
 <h3 id="安装cloud9-C9-web-IDE的两种方式"><a href="#安装cloud9-C9-web-IDE的两种方式" class="headerlink" title="安装cloud9(C9) web IDE的两种方式:"></a>安装cloud9(C9) web IDE的两种方式:</h3><h4 id="方式一：在aws上安装"><a href="#方式一：在aws上安装" class="headerlink" title="方式一：在aws上安装"></a>方式一：在aws上安装</h4><p>这种方式安装是最简单的，而且是全功能的c9版本，而且可以免费使用aws云服务器，但是aws在国内没有数据中心，速度有点慢，如果你不在意，可以用这种方式。</p>
 <ul>
-<li><p><strong>第一步</strong> 注册aws账号，绑定信用卡<br><img src="http://bulldog.qiniudn.com/aws_signup.png" alt="注册界面"></p>
+<li><p><strong>第一步</strong> 注册aws账号，绑定信用卡<br><img src="http://img.alpablog.com/aws_signup.png" alt="注册界面"></p>
 </li>
-<li><p><strong>第二步:部署cloud9(c9)</strong> 打开管理面板部署cloud9<br><img src="http://bulldog.qiniudn.com/cloud9open.png" alt="部署cloud9"></p>
+<li><p><strong>第二步:部署cloud9(c9)</strong> 打开管理面板部署cloud9<br><img src="http://img.alpablog.com/cloud9open.png" alt="部署cloud9"></p>
 </li>
 </ul>
-<p><img src="http://bulldog.qiniudn.com/c9_create_step1.png" alt="step1"></p>
-<p><img src="http://bulldog.qiniudn.com/c9_create_step2.png" alt="step2"><br>记得选1cup1Gbmemory，这个是免费的，然后下一步，最好就弄完了。剩下的就是打开浏览器折腾吧。</p>
-<p>加载画面:<br><img src="http://bulldog.qiniudn.com/c9ide_loding1.png" alt="加载画面"></p>
-<p>cloud9欢迎界面：<br><img src="http://bulldog.qiniudn.com/c9welcome.png" alt="cloud9欢迎界面"></p>
+<p><img src="http://img.alpablog.com/c9_create_step1.png" alt="step1"></p>
+<p><img src="http://img.alpablog.com/c9_create_step2.png" alt="step2"><br>记得选1cup1Gbmemory，这个是免费的，然后下一步，最好就弄完了。剩下的就是打开浏览器折腾吧。</p>
+<p>加载画面:<br><img src="http://img.alpablog.com/c9ide_loding1.png" alt="加载画面"></p>
+<p>cloud9欢迎界面：<br><img src="http://img.alpablog.com/c9welcome.png" alt="cloud9欢迎界面"></p>
 <h4 id="方式二：自主云服务器安装"><a href="#方式二：自主云服务器安装" class="headerlink" title="方式二：自主云服务器安装"></a>方式二：自主云服务器安装</h4><p>这种安装方式的好处是你可以有更多的自主权，可以在IDE界面里的consle可以做更多事情，而且用国内的云服务器的话速度应该能得到保障，缺点是cloud9的开源版本功能没有亚马逊上的cloud9功能全面，而且自己提供云服务器一般是要花银子的。不过这里要强调一下，用第一种方式部署cloud9时除了选择亚马逊自己EC2主机，也可选择用自己提供的云服务器，不过我没尝试过。</p>
 <h3 id="第一步（其实是N步）："><a href="#第一步（其实是N步）：" class="headerlink" title="第一步（其实是N步）："></a><strong>第一步（其实是N步）：</strong></h3><ul>
 <li>打开<a href="https://github.com/c9/core" target="_blank" rel="noopener">c9 github页面链接</a>,按照安装文档进行安装配置</li>
-<li><p>执行安装命令<br><img src="http://bulldog.qiniudn.com/c9_install_cmd.png" alt="安装文档图"><br><strong>安装</strong></p>
+<li><p>执行安装命令<br><img src="http://img.alpablog.com/c9_install_cmd.png" alt="安装文档图"><br><strong>安装</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/c9/core.git c9sdk</span><br><span class="line"><span class="built_in">cd</span> c9sdk</span><br><span class="line">scripts/install-sdk.sh</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>启动服务</p>
@@ -115,13 +115,13 @@
 </ul>
 <p>指定自己的工作空间，并以Basic Auth认证方式启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-4-197-ubuntu:~$ ls</span><br><span class="line">c9sdk  download  workspace</span><br><span class="line">ubuntu@VM-4-197-ubuntu:~$ node c9sdk/server.js -w ~/workspace --auth abc:123456</span><br></pre></td></tr></table></figure></p>
 <p>说明一下c9启动后侦听的是127.0.0.1的ip，我设置–listen为外网ip好像无效，最后是用安装nginx反向代理来实现外网80端口访问的。</p>
-<p><img src="http://bulldog.qiniudn.com/c9_basic_auth.png" alt="c9登陆"></p>
+<p><img src="http://img.alpablog.com/c9_basic_auth.png" alt="c9登陆"></p>
 <p>剩下的事情就是代码写的怎么样，和linux命令用的熟不熟的问题了</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/08/用c9搭建自己的web IDE开发环境/" data-id="cjkql8r3j00029qonmelj4bwb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/08/用c9搭建自己的web IDE开发环境/" data-id="cjpv6fz9h0000mgqxszu8tz98" class="article-share-link">Share</a>
       
       
     </footer>
@@ -191,7 +191,7 @@
 <ul>
 <li>可参考文章：<a href="https://yq.aliyun.com/articles/29941?spm=5176.10695662.1996646101.searchclickresult.696064a352OVFc" target="_blank" rel="noopener">Docker 镜像加速器</a></li>
 </ul>
-<p>如图：<br><img src="http://bulldog.qiniudn.com/docker7.png" alt="阿里云镜像"><br><img src="http://bulldog.qiniudn.com/docker1.png" alt="加速镜像"></p>
+<p>如图：<br><img src="http://img.alpablog.com/docker7.png" alt="阿里云镜像"><br><img src="http://img.alpablog.com/docker1.png" alt="加速镜像"></p>
 <ul>
 <li>配置加速镜像地址</li>
 </ul>
@@ -201,32 +201,32 @@
 <li>查找tomcat容器镜像<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search tomcat</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>如图:<br><img src="http://bulldog.qiniudn.com/docker2.png" alt=""></p>
+<p>如图:<br><img src="http://img.alpablog.com/docker2.png" alt=""></p>
 <ul>
 <li>下载start最多的tomcat镜像<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull  docker.io/tomcat</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>如图：<br><img src="http://bulldog.qiniudn.com/docker3.png" alt=""></p>
+<p>如图：<br><img src="http://img.alpablog.com/docker3.png" alt=""></p>
 <ul>
 <li>查看已经下载到本地的镜像<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>如图：<br><img src="http://bulldog.qiniudn.com/docker4.png" alt=""></p>
+<p>如图：<br><img src="http://img.alpablog.com/docker4.png" alt=""></p>
 <ul>
 <li>启动tomcat容器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8080:8080 docker.io/tomcat</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>若端口被占用，可以指定容器和主机的映射端口，前者是主机对外访问端口：后者是映射到容器内部的端口</p>
-<p>如图：<br><img src="http://bulldog.qiniudn.com/docker5.png" alt=""></p>
+<p>如图：<br><img src="http://img.alpablog.com/docker5.png" alt=""></p>
 <ul>
 <li>用浏览器访问主机对应地址和端口</li>
 </ul>
-<p><img src="http://bulldog.qiniudn.com/docker8.png" alt=""></p>
+<p><img src="http://img.alpablog.com/docker8.png" alt=""></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/23/Centos7下Docker部署项目到tomcat/" data-id="cjkql8r3b00009qon8iz46tz2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/23/Centos7下Docker部署项目到tomcat/" data-id="cjpv6fz9o0002mgqxvg0zj2aj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -287,12 +287,12 @@
 </ul>
 <p><strong>欧几里德距离计算数学公式</strong>：</p>
 <hr>
-<h2 id="sqrt-p-1-q-1-2-p-2-q-2-2-cdots-p-n-q-n-2-sqrt-sum-i-1-n-p-i-q-i-2-qquad"><a href="#sqrt-p-1-q-1-2-p-2-q-2-2-cdots-p-n-q-n-2-sqrt-sum-i-1-n-p-i-q-i-2-qquad" class="headerlink" title="$$   \sqrt{(p_{1} - q_{1})^2 + (p_{2} - q_{2})^2 + \cdots(p_{n} - q_{n})^2}  = \sqrt{\sum_{i=1}^{n} (p_{i}-q_{i})^2 \qquad} $$"></a>$$   \sqrt{(p_{1} - q_{1})^2 + (p_{2} - q_{2})^2 + \cdots(p_{n} - q_{n})^2}  = \sqrt{\sum_{i=1}^{n} (p_{i}-q_{i})^2 \qquad} $$</h2><p><img src="http://bulldog.qiniudn.com/Snip20180519_1.png" alt="公式图片"></p>
+<h2 id="sqrt-p-1-q-1-2-p-2-q-2-2-cdots-p-n-q-n-2-sqrt-sum-i-1-n-p-i-q-i-2-qquad"><a href="#sqrt-p-1-q-1-2-p-2-q-2-2-cdots-p-n-q-n-2-sqrt-sum-i-1-n-p-i-q-i-2-qquad" class="headerlink" title="$$   \sqrt{(p_{1} - q_{1})^2 + (p_{2} - q_{2})^2 + \cdots(p_{n} - q_{n})^2}  = \sqrt{\sum_{i=1}^{n} (p_{i}-q_{i})^2 \qquad} $$"></a>$$   \sqrt{(p_{1} - q_{1})^2 + (p_{2} - q_{2})^2 + \cdots(p_{n} - q_{n})^2}  = \sqrt{\sum_{i=1}^{n} (p_{i}-q_{i})^2 \qquad} $$</h2><p><img src="http://img.alpablog.com/Snip20180519_1.png" alt="公式图片"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/19/集体智慧编程读书笔记1/" data-id="cjkql8r3k00039qonna797w1d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/19/集体智慧编程读书笔记1/" data-id="cjpv6fz9p0003mgqxi33n56k7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -360,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/17/Mac OS X中利用终端校验文件的MD5和SHA1值/" data-id="cjkql8r3g00019qon9azbcvzj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/17/Mac OS X中利用终端校验文件的MD5和SHA1值/" data-id="cjpv6fz9l0001mgqxdbym9l88" class="article-share-link">Share</a>
       
       
     </footer>

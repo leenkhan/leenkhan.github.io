@@ -14,18 +14,18 @@
 <meta property="og:site_name" content="代码的星辰大海">
 <meta property="og:description" content="Centos7下Docker部署项目到tomcat安装Docker  设置yum安装源 1yum install -y epel-release  安装docker 1yum install docker-io  加入开机启动配置 1chkconfig docker on  启动docker服务 1service docker start   配置docker镜像加速器 用docker默认的镜像拉">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://bulldog.qiniudn.com/docker7.png">
-<meta property="og:image" content="http://bulldog.qiniudn.com/docker1.png">
-<meta property="og:image" content="http://bulldog.qiniudn.com/docker2.png">
-<meta property="og:image" content="http://bulldog.qiniudn.com/docker3.png">
-<meta property="og:image" content="http://bulldog.qiniudn.com/docker4.png">
-<meta property="og:image" content="http://bulldog.qiniudn.com/docker5.png">
-<meta property="og:image" content="http://bulldog.qiniudn.com/docker8.png">
-<meta property="og:updated_time" content="2018-06-08T14:57:12.673Z">
+<meta property="og:image" content="http://img.alpablog.com/docker7.png">
+<meta property="og:image" content="http://img.alpablog.com/docker1.png">
+<meta property="og:image" content="http://img.alpablog.com/docker2.png">
+<meta property="og:image" content="http://img.alpablog.com/docker3.png">
+<meta property="og:image" content="http://img.alpablog.com/docker4.png">
+<meta property="og:image" content="http://img.alpablog.com/docker5.png">
+<meta property="og:image" content="http://img.alpablog.com/docker8.png">
+<meta property="og:updated_time" content="2018-12-19T12:50:45.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos7下Docker部署项目到tomcat">
 <meta name="twitter:description" content="Centos7下Docker部署项目到tomcat安装Docker  设置yum安装源 1yum install -y epel-release  安装docker 1yum install docker-io  加入开机启动配置 1chkconfig docker on  启动docker服务 1service docker start   配置docker镜像加速器 用docker默认的镜像拉">
-<meta name="twitter:image" content="http://bulldog.qiniudn.com/docker7.png">
+<meta name="twitter:image" content="http://img.alpablog.com/docker7.png">
   
     <link rel="alternate" href="/atom.xml" title="代码的星辰大海" type="application/atom+xml">
   
@@ -118,7 +118,7 @@
 <ul>
 <li>可参考文章：<a href="https://yq.aliyun.com/articles/29941?spm=5176.10695662.1996646101.searchclickresult.696064a352OVFc" target="_blank" rel="noopener">Docker 镜像加速器</a></li>
 </ul>
-<p>如图：<br><img src="http://bulldog.qiniudn.com/docker7.png" alt="阿里云镜像"><br><img src="http://bulldog.qiniudn.com/docker1.png" alt="加速镜像"></p>
+<p>如图：<br><img src="http://img.alpablog.com/docker7.png" alt="阿里云镜像"><br><img src="http://img.alpablog.com/docker1.png" alt="加速镜像"></p>
 <ul>
 <li>配置加速镜像地址</li>
 </ul>
@@ -128,32 +128,32 @@
 <li>查找tomcat容器镜像<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search tomcat</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>如图:<br><img src="http://bulldog.qiniudn.com/docker2.png" alt=""></p>
+<p>如图:<br><img src="http://img.alpablog.com/docker2.png" alt=""></p>
 <ul>
 <li>下载start最多的tomcat镜像<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull  docker.io/tomcat</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>如图：<br><img src="http://bulldog.qiniudn.com/docker3.png" alt=""></p>
+<p>如图：<br><img src="http://img.alpablog.com/docker3.png" alt=""></p>
 <ul>
 <li>查看已经下载到本地的镜像<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>如图：<br><img src="http://bulldog.qiniudn.com/docker4.png" alt=""></p>
+<p>如图：<br><img src="http://img.alpablog.com/docker4.png" alt=""></p>
 <ul>
 <li>启动tomcat容器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8080:8080 docker.io/tomcat</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>若端口被占用，可以指定容器和主机的映射端口，前者是主机对外访问端口：后者是映射到容器内部的端口</p>
-<p>如图：<br><img src="http://bulldog.qiniudn.com/docker5.png" alt=""></p>
+<p>如图：<br><img src="http://img.alpablog.com/docker5.png" alt=""></p>
 <ul>
 <li>用浏览器访问主机对应地址和端口</li>
 </ul>
-<p><img src="http://bulldog.qiniudn.com/docker8.png" alt=""></p>
+<p><img src="http://img.alpablog.com/docker8.png" alt=""></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/23/Centos7下Docker部署项目到tomcat/" data-id="cjkql8r3b00009qon8iz46tz2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/23/Centos7下Docker部署项目到tomcat/" data-id="cjpv6fz9o0002mgqxvg0zj2aj" class="article-share-link">Share</a>
       
       
     </footer>
