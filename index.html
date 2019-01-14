@@ -66,6 +66,91 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Spring boot 介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/14/Spring boot 介绍/" class="article-date">
+  <time datetime="2019-01-14T13:55:12.900Z" itemprop="datePublished">2019-01-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: Spring boot 介绍<br>date: 2019-01-14 21:55:24</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>#Spring boot 介绍 </p>
+<p>##迟来的Spring Boot学习序列（一）</p>
+<ul>
+<li><em>spring boot是个啥?</em><br>我们来看一下官方介绍：<blockquote>
+<p>Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”.</p>
+</blockquote>
+</li>
+</ul>
+<p>大概意思就是：可以非常容易的用来创建基于spring体系的独立运行的应用。当然这里指等是一个微服务应用</p>
+<ul>
+<li>怎么创建？show me the code<br>spring官方提供了一个网站可以通过自定义可选模块的方式创建。<a href="https://start.spring.io/" target="_blank" rel="noopener">Spring Initializr.</a></li>
+</ul>
+<p><img src="http://img.alpablog.com/Spring-Initializr..png" alt="@创建spring boot项目"></p>
+<ul>
+<li><p>选择Grenrate project就生成一个初始化好的springboot项目的压缩包了，解压，导入开发IDE<br><img src="http://img.alpablog.com/hello-project.png" alt="@IED"></p>
+</li>
+<li><p>可以看一下项目，是一个普通的manve项目的结构：</p>
+</li>
+<li>注意一下resources文件夹,里面有两个文件目录</li>
+<li>src/resources/static，这个约定存放js、图片等静态资源</li>
+<li><p>src/resources/templates，这个约定存放html等模版页面</p>
+</li>
+<li><p>pom.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>HelloSpringbootApplication.java ，这是整个项目的启动入口类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> io.github.leenkhan.hellospringboot;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line">SpringBootApplication</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloSpringbootApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(HelloSpringbootApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>application.properties 这个是项目配置文件，数据库、及其他用到的中间件的配置一般在这里配置，目前内容是空白的</p>
+</li>
+<li>下面建我们的第一个微服务接口， 新建IndexController.java<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> io.github.leenkhan.hellospringboot.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IndexController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/index"</span>)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello spring boot"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>启动HelloSpringbootApplication，访问http:<a href="http://localhost:8080/index" target="_blank" rel="noopener">http://localhost:8080/index</a><br><img src="http://img.alpablog.com/hello-controller.png" alt="@效果"></p>
+<ul>
+<li>好的，你完成了一个简单等微服务应用了，你甚至可以打包你打包部署了<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn package</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>target/hello-springboot-0.0.1-SNAPSHOT.jar<br>把生成这个打包好的jar文件拷贝到要部署的地方，运行下面命令就完成部署了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar hello-springboot-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/14/Spring boot 介绍/" data-id="cjqwed9bv0003r5qxfmj4tv7k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+
+  <!-- 显示文章访问和评论统计-->
+   
+    <div class="busuanzi_container_page_pv"> 
+      <span class="head-plus">   
+      <i class="fa fa-user"></i>
+     <span id="busuanzi_value_page_pv">
+      <i class="fa fa-spinner fa-spin"></i>
+     </span>次访问   </span>  
+     <span class="head-plus">  
+      <i class="fa fa-comments"></i>
+     <span class="ds-thread-count" data-thread-key="2019/01/14/Spring boot 介绍/">
+      <i class="fa fa-spinner fa-spin"></i></span>条评论  
+     </span> 
+    </div> 
+    
+</article>
+
+
+
+
+  
     <article id="post-用c9搭建自己的web IDE开发环境" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/08/用c9搭建自己的web IDE开发环境/" class="article-date">
@@ -121,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/08/用c9搭建自己的web IDE开发环境/" data-id="cjpv6fz9h0000mgqxszu8tz98" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/08/用c9搭建自己的web IDE开发环境/" data-id="cjqwed9bw0004r5qx5tkiy022" class="article-share-link">Share</a>
       
       
     </footer>
@@ -226,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/23/Centos7下Docker部署项目到tomcat/" data-id="cjpv6fz9o0002mgqxvg0zj2aj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/23/Centos7下Docker部署项目到tomcat/" data-id="cjqwed9bn0000r5qxqeumke3o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -292,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/19/集体智慧编程读书笔记1/" data-id="cjpv6fz9p0003mgqxi33n56k7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/19/集体智慧编程读书笔记1/" data-id="cjqwed9br0001r5qxiuw5br11" class="article-share-link">Share</a>
       
       
     </footer>
@@ -360,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/17/Mac OS X中利用终端校验文件的MD5和SHA1值/" data-id="cjpv6fz9l0001mgqxdbym9l88" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/17/Mac OS X中利用终端校验文件的MD5和SHA1值/" data-id="cjqwed9bt0002r5qxsdcmnsnb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -406,7 +491,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
     </div>
   </div>
 
@@ -417,6 +502,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/01/14/Spring boot 介绍/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2018/06/08/用c9搭建自己的web IDE开发环境/">用cloud9(c9)搭建自己的web IDE开发环境</a>
@@ -446,7 +535,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 alpa<br>
+      &copy; 2019 alpa<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       <!-- 不蒜统计 -->
       <span style="display: inline;" id="busuanzi_container_site_uv">本站总访客数 <span id="busuanzi_value_site_uv" font="微软雅黑" style="color:white"></span> 次</span>
