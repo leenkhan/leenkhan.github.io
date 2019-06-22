@@ -14,14 +14,14 @@
 <meta property="og:site_name" content="代码的星辰大海">
 <meta property="og:description" content="Spring boot 介绍迟来的Spring Boot学习序列（一） spring boot是个啥?我们来看一下官方介绍： Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”.    大概意思就是：可以非常容易的用来创">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://img.alpablog.com/Spring-Initializr..png">
-<meta property="og:image" content="http://img.alpablog.com/hello-project.png">
-<meta property="og:image" content="http://img.alpablog.com/hello-controller.png">
-<meta property="og:updated_time" content="2019-01-14T14:05:21.833Z">
+<meta property="og:image" content="http://yoursite.com/2019/01/14/Spring%20boot%20介绍/images/Spring-Initializr..png">
+<meta property="og:image" content="http://yoursite.com/2019/01/14/Spring%20boot%20介绍/images/hello-project.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/14/Spring%20boot%20介绍/images/hello-controller.png">
+<meta property="og:updated_time" content="2019-04-14T06:47:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring boot 介绍">
 <meta name="twitter:description" content="Spring boot 介绍迟来的Spring Boot学习序列（一） spring boot是个啥?我们来看一下官方介绍： Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”.    大概意思就是：可以非常容易的用来创">
-<meta name="twitter:image" content="http://img.alpablog.com/Spring-Initializr..png">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/14/Spring%20boot%20介绍/images/Spring-Initializr..png">
   
     <link rel="alternate" href="/atom.xml" title="代码的星辰大海" type="application/atom+xml">
   
@@ -104,9 +104,9 @@
 <ul>
 <li>怎么创建？show me the code<br>spring官方提供了一个网站可以通过自定义可选模块的方式创建。<a href="https://start.spring.io/" target="_blank" rel="noopener">Spring Initializr.</a></li>
 </ul>
-<p><img src="http://img.alpablog.com/Spring-Initializr..png" alt="@创建spring boot项目"></p>
+<p><img src="images/Spring-Initializr..png" alt="@创建spring boot项目"></p>
 <ul>
-<li><p>选择Grenrate project就生成一个初始化好的springboot项目的压缩包了，解压，导入开发IDE<br><img src="http://img.alpablog.com/hello-project.png" alt="@IED"></p>
+<li><p>选择Grenrate project就生成一个初始化好的springboot项目的压缩包了，解压，导入开发IDE<br><img src="images/hello-project.png" alt="@IED"></p>
 </li>
 <li><p>可以看一下项目，是一个普通的manve项目的结构：</p>
 </li>
@@ -125,7 +125,7 @@
 <li>下面建我们的第一个微服务接口， 新建IndexController.java<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> io.github.leenkhan.hellospringboot.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IndexController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/index"</span>)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello spring boot"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>启动HelloSpringbootApplication，访问http:<a href="http://localhost:8080/index" target="_blank" rel="noopener">http://localhost:8080/index</a><br><img src="http://img.alpablog.com/hello-controller.png" alt="@效果"></p>
+<p>启动HelloSpringbootApplication，访问http:<a href="http://localhost:8080/index" target="_blank" rel="noopener">http://localhost:8080/index</a><br><img src="images/hello-controller.png" alt="@效果"></p>
 <ul>
 <li>好的，你完成了一个简单等微服务应用了，你甚至可以打包你打包部署了<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn package</span><br></pre></td></tr></table></figure>
 </li>
@@ -135,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/14/Spring boot 介绍/" data-id="cjsr6sgvd0001h9qxpegkvdi0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/14/Spring boot 介绍/" data-id="cjx7ampvu0003eovkll2d5voa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -198,7 +198,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
     </div>
   </div>
 
@@ -209,6 +209,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/22/Spring boot 集成redis/">Spring boot 基本配置和集成mybatis</a>
+          </li>
         
           <li>
             <a href="/2019/01/27/Springboot基本配置和集成mybatis/">Spring boot 基本配置和集成mybatis</a>
@@ -224,10 +228,6 @@
         
           <li>
             <a href="/2018/05/23/Centos7下Docker部署项目到tomcat/">Centos7下Docker部署项目到tomcat</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/19/集体智慧编程读书笔记1/">集体智慧编程读书笔记1</a>
           </li>
         
       </ul>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Spring boot 基本配置和集成mybatis | 代码的星辰大海</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##Spring boot 集成redis ###迟来的Spring Boot学习序列（三） 口水话: springboot引入中间件的操作方式基本分散步：  step1: 在pom.xml里引用入依赖包 step2: 在配置文件 .properties或.yml里加入属性配置项目信息 step3: 新建对应的config类，或直接用springboot依赖包里的配置类。 配置文件里属性要和配置类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring boot 基本配置和集成mybatis">
+<meta property="og:url" content="http://yoursite.com/2019/06/22/Spring boot 集成redis/index.html">
+<meta property="og:site_name" content="代码的星辰大海">
+<meta property="og:description" content="##Spring boot 集成redis ###迟来的Spring Boot学习序列（三） 口水话: springboot引入中间件的操作方式基本分散步：  step1: 在pom.xml里引用入依赖包 step2: 在配置文件 .properties或.yml里加入属性配置项目信息 step3: 新建对应的config类，或直接用springboot依赖包里的配置类。 配置文件里属性要和配置类">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-22T08:54:09.058Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring boot 基本配置和集成mybatis">
+<meta name="twitter:description" content="##Spring boot 集成redis ###迟来的Spring Boot学习序列（三） 口水话: springboot引入中间件的操作方式基本分散步：  step1: 在pom.xml里引用入依赖包 step2: 在配置文件 .properties或.yml里加入属性配置项目信息 step3: 新建对应的config类，或直接用springboot依赖包里的配置类。 配置文件里属性要和配置类">
+  
+    <link rel="alternate" href="/atom.xml" title="代码的星辰大海" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">代码的星辰大海</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">alpa&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Spring boot 集成redis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/22/Spring boot 集成redis/" class="article-date">
+  <time datetime="2019-06-22T08:53:00.000Z" itemprop="datePublished">2019-06-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Spring boot 基本配置和集成mybatis
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##Spring boot 集成redis</p>
+<p>###迟来的Spring Boot学习序列（三）</p>
+<p><strong>口水话:</strong> springboot引入中间件的操作方式基本分散步：</p>
+<ul>
+<li>step1: 在pom.xml里引用入依赖包</li>
+<li>step2: 在配置文件 .properties或.yml里加入属性配置项目信息</li>
+<li>step3: 新建对应的config类，或直接用springboot依赖包里的配置类。<blockquote>
+<p>配置文件里属性要和配置类里用的属性对应，如果用的是springboot依赖包里的配置类则配置文件里的属性是固定的，如果是自己新建的配置类则可灵活配置属性名称</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>开始配置</strong></p>
+<ul>
+<li>官方文档的地址：<a href="https://spring.io/projects/spring-data-redis" target="_blank" rel="noopener">https://spring.io/projects/spring-data-redis</a> ，加个官方文档地址，如果想自己深入了解可以看一下。redis常用的是两种方式调用：jedis跟lettuce，从springboot1.x开始就支持jedis，后期引入lettuce，我们以lettuce方式使用redis</li>
+<li><p>pom.xml 加入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-pool2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建配置类 RedisConfig.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.connection.RedisStandaloneConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.connection.jedis.JedisConnectionFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.core.RedisTemplate;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;redis.host&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;redis.port&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> port;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;redis.pass&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String pass;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> LettuceConnectionFactory <span class="title">redisConnectionFactory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> LettuceConnectionFactory(<span class="keyword">new</span> RedisStandaloneConfiguration(host, port));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RedisTemplate&lt;String, Object&gt; <span class="title">redisTemplate</span><span class="params">(LettuceConnectionFactory lettuceConnectionFactory)</span> </span>&#123;</span><br><span class="line">        RedisTemplate&lt;String, Object&gt; template = <span class="keyword">new</span> RedisTemplate&lt;&gt;();</span><br><span class="line">        template.setConnectionFactory(lettuceConnectionFactory);</span><br><span class="line">        <span class="keyword">return</span> template;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置文件application-dev.properties  加入配置项</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#redis</span><br><span class="line">redis.host=localhost</span><br><span class="line">redis.port=<span class="number">6379</span></span><br><span class="line">redis.pass=</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>java调用redis示例，在controller.java里加入下面代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> RedisTemplate redisTemplate;</span><br><span class="line"></span><br><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/redis"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">redisTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">    redisTemplate.opsForValue().set(<span class="string">"ttt"</span>,<span class="string">"aaaaa"</span>);</span><br><span class="line">    String result = (String)redisTemplate.opsForValue().get(<span class="string">"ttt"</span>);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/22/Spring boot 集成redis/" data-id="cjx7ampv60000eovk1sryjfhy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/27/Springboot基本配置和集成mybatis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Spring boot 基本配置和集成mybatis</div>
+    </a>
+  
+</nav>
+
+  
+
+  <!-- 显示文章访问和评论统计-->
+   
+    <div class="busuanzi_container_page_pv"> 
+      <span class="head-plus">   
+      <i class="fa fa-user"></i>
+     <span id="busuanzi_value_page_pv">
+      <i class="fa fa-spinner fa-spin"></i>
+     </span>次访问   </span>  
+     <span class="head-plus">  
+      <i class="fa fa-comments"></i>
+     <span class="ds-thread-count" data-thread-key="2019/06/22/Spring boot 集成redis/">
+      <i class="fa fa-spinner fa-spin"></i></span>条评论  
+     </span> 
+    </div> 
+    
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/22/Spring boot 集成redis/">Spring boot 基本配置和集成mybatis</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/27/Springboot基本配置和集成mybatis/">Spring boot 基本配置和集成mybatis</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/14/Spring boot 介绍/">Spring boot 介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/08/用c9搭建自己的web IDE开发环境/">用cloud9(c9)搭建自己的web IDE开发环境</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/23/Centos7下Docker部署项目到tomcat/">Centos7下Docker部署项目到tomcat</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 alpa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <!-- 不蒜统计 -->
+      <span style="display: inline;" id="busuanzi_container_site_uv">本站总访客数 <span id="busuanzi_value_site_uv" font="微软雅黑" style="color:white"></span> 次</span>
+<span style="display: inline;" id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv" font="微软雅黑" style="color:white"></span> 次</span>
+    </div>
+  </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

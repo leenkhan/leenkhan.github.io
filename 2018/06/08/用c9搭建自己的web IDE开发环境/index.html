@@ -14,19 +14,19 @@
 <meta property="og:site_name" content="代码的星辰大海">
 <meta property="og:description" content="闲话：因为嫌弃MBP15太重，尝试周末带ipad和折叠键盘出去，看书学习时偶尔需要敲一下书上的代码跑一下，于是仔细对比了coding.net的Cloud Studio和亚马逊的cloud9(c9)两款web IDE，先说一下我的体验，首先coding的Cloud Studio只有一个月的免费体验时间，开通的时部署到腾讯云的建站主机上，到期需要续费才能用，价格228块最近coding和腾讯云合作做活">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://img.alpablog.com/aws_signup.png">
-<meta property="og:image" content="http://img.alpablog.com/cloud9open.png">
-<meta property="og:image" content="http://img.alpablog.com/c9_create_step1.png">
-<meta property="og:image" content="http://img.alpablog.com/c9_create_step2.png">
-<meta property="og:image" content="http://img.alpablog.com/c9ide_loding1.png">
-<meta property="og:image" content="http://img.alpablog.com/c9welcome.png">
-<meta property="og:image" content="http://img.alpablog.com/c9_install_cmd.png">
-<meta property="og:image" content="http://img.alpablog.com/c9_basic_auth.png">
-<meta property="og:updated_time" content="2018-12-19T12:50:49.268Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/用c9搭建自己的web%20IDE开发环境/images/aws_signup.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/用c9搭建自己的web%20IDE开发环境/images/cloud9open.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/用c9搭建自己的web%20IDE开发环境/images/c9_create_step1.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/用c9搭建自己的web%20IDE开发环境/images/c9_create_step2.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/用c9搭建自己的web%20IDE开发环境/images/c9ide_loding1.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/用c9搭建自己的web%20IDE开发环境/images/c9welcome.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/用c9搭建自己的web%20IDE开发环境/images/c9_install_cmd.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/用c9搭建自己的web%20IDE开发环境/images/c9_basic_auth.png">
+<meta property="og:updated_time" content="2019-04-14T06:47:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用cloud9(c9)搭建自己的web IDE开发环境">
 <meta name="twitter:description" content="闲话：因为嫌弃MBP15太重，尝试周末带ipad和折叠键盘出去，看书学习时偶尔需要敲一下书上的代码跑一下，于是仔细对比了coding.net的Cloud Studio和亚马逊的cloud9(c9)两款web IDE，先说一下我的体验，首先coding的Cloud Studio只有一个月的免费体验时间，开通的时部署到腾讯云的建站主机上，到期需要续费才能用，价格228块最近coding和腾讯云合作做活">
-<meta name="twitter:image" content="http://img.alpablog.com/aws_signup.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/08/用c9搭建自己的web%20IDE开发环境/images/aws_signup.png">
   
     <link rel="alternate" href="/atom.xml" title="代码的星辰大海" type="application/atom+xml">
   
@@ -102,19 +102,19 @@
         <p><strong>闲话</strong>：因为嫌弃MBP15太重，尝试周末带ipad和折叠键盘出去，看书学习时偶尔需要敲一下书上的代码跑一下，于是仔细对比了coding.net的Cloud Studio和亚马逊的cloud9(c9)两款web IDE，先说一下我的体验，首先coding的Cloud Studio只有一个月的免费体验时间，开通的时部署到腾讯云的建站主机上，到期需要续费才能用，价格228块最近coding和腾讯云合作做活动，活动价128块。cloud9可以免费部署到亚马逊的EC2云服务器，1cpu1G内存的是免费的，但是开通aws账号需要信用卡,没信用卡的可以散了(话说这年代为什么还有人木有信用卡)。</p>
 <h3 id="安装cloud9-C9-web-IDE的两种方式"><a href="#安装cloud9-C9-web-IDE的两种方式" class="headerlink" title="安装cloud9(C9) web IDE的两种方式:"></a>安装cloud9(C9) web IDE的两种方式:</h3><h4 id="方式一：在aws上安装"><a href="#方式一：在aws上安装" class="headerlink" title="方式一：在aws上安装"></a>方式一：在aws上安装</h4><p>这种方式安装是最简单的，而且是全功能的c9版本，而且可以免费使用aws云服务器，但是aws在国内没有数据中心，速度有点慢，如果你不在意，可以用这种方式。</p>
 <ul>
-<li><p><strong>第一步</strong> 注册aws账号，绑定信用卡<br><img src="http://img.alpablog.com/aws_signup.png" alt="注册界面"></p>
+<li><p><strong>第一步</strong> 注册aws账号，绑定信用卡<br><img src="images/aws_signup.png" alt="注册界面"></p>
 </li>
-<li><p><strong>第二步:部署cloud9(c9)</strong> 打开管理面板部署cloud9<br><img src="http://img.alpablog.com/cloud9open.png" alt="部署cloud9"></p>
+<li><p><strong>第二步:部署cloud9(c9)</strong> 打开管理面板部署cloud9<br><img src="images/cloud9open.png" alt="部署cloud9"></p>
 </li>
 </ul>
-<p><img src="http://img.alpablog.com/c9_create_step1.png" alt="step1"></p>
-<p><img src="http://img.alpablog.com/c9_create_step2.png" alt="step2"><br>记得选1cup1Gbmemory，这个是免费的，然后下一步，最好就弄完了。剩下的就是打开浏览器折腾吧。</p>
-<p>加载画面:<br><img src="http://img.alpablog.com/c9ide_loding1.png" alt="加载画面"></p>
-<p>cloud9欢迎界面：<br><img src="http://img.alpablog.com/c9welcome.png" alt="cloud9欢迎界面"></p>
+<p><img src="images/c9_create_step1.png" alt="step1"></p>
+<p><img src="images/c9_create_step2.png" alt="step2"><br>记得选1cup1Gbmemory，这个是免费的，然后下一步，最好就弄完了。剩下的就是打开浏览器折腾吧。</p>
+<p>加载画面:<br><img src="images/c9ide_loding1.png" alt="加载画面"></p>
+<p>cloud9欢迎界面：<br><img src="images/c9welcome.png" alt="cloud9欢迎界面"></p>
 <h4 id="方式二：自主云服务器安装"><a href="#方式二：自主云服务器安装" class="headerlink" title="方式二：自主云服务器安装"></a>方式二：自主云服务器安装</h4><p>这种安装方式的好处是你可以有更多的自主权，可以在IDE界面里的consle可以做更多事情，而且用国内的云服务器的话速度应该能得到保障，缺点是cloud9的开源版本功能没有亚马逊上的cloud9功能全面，而且自己提供云服务器一般是要花银子的。不过这里要强调一下，用第一种方式部署cloud9时除了选择亚马逊自己EC2主机，也可选择用自己提供的云服务器，不过我没尝试过。</p>
 <h3 id="第一步（其实是N步）："><a href="#第一步（其实是N步）：" class="headerlink" title="第一步（其实是N步）："></a><strong>第一步（其实是N步）：</strong></h3><ul>
 <li>打开<a href="https://github.com/c9/core" target="_blank" rel="noopener">c9 github页面链接</a>,按照安装文档进行安装配置</li>
-<li><p>执行安装命令<br><img src="http://img.alpablog.com/c9_install_cmd.png" alt="安装文档图"><br><strong>安装</strong></p>
+<li><p>执行安装命令<br><img src="images/c9_install_cmd.png" alt="安装文档图"><br><strong>安装</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/c9/core.git c9sdk</span><br><span class="line"><span class="built_in">cd</span> c9sdk</span><br><span class="line">scripts/install-sdk.sh</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>启动服务</p>
@@ -126,13 +126,13 @@
 </ul>
 <p>指定自己的工作空间，并以Basic Auth认证方式启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-4-197-ubuntu:~$ ls</span><br><span class="line">c9sdk  download  workspace</span><br><span class="line">ubuntu@VM-4-197-ubuntu:~$ node c9sdk/server.js -w ~/workspace --auth abc:123456</span><br></pre></td></tr></table></figure></p>
 <p>说明一下c9启动后侦听的是127.0.0.1的ip，我设置–listen为外网ip好像无效，最后是用安装nginx反向代理来实现外网80端口访问的。</p>
-<p><img src="http://img.alpablog.com/c9_basic_auth.png" alt="c9登陆"></p>
+<p><img src="images/c9_basic_auth.png" alt="c9登陆"></p>
 <p>剩下的事情就是代码写的怎么样，和linux命令用的熟不熟的问题了</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/08/用c9搭建自己的web IDE开发环境/" data-id="cjsr6sgvi0004h9qxpc280jzj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/08/用c9搭建自己的web IDE开发环境/" data-id="cjx7ampvz0005eovk2qenzwjn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -195,7 +195,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
     </div>
   </div>
 
@@ -206,6 +206,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/22/Spring boot 集成redis/">Spring boot 基本配置和集成mybatis</a>
+          </li>
         
           <li>
             <a href="/2019/01/27/Springboot基本配置和集成mybatis/">Spring boot 基本配置和集成mybatis</a>
@@ -221,10 +225,6 @@
         
           <li>
             <a href="/2018/05/23/Centos7下Docker部署项目到tomcat/">Centos7下Docker部署项目到tomcat</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/19/集体智慧编程读书笔记1/">集体智慧编程读书笔记1</a>
           </li>
         
       </ul>
